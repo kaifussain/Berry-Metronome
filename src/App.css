@@ -3,4 +3,32 @@ body{
   background-color: var(--main-bg-color);
   color: var(--text-color1);
   font-size: 30px;
+  margin:0;
+  padding:18px;
+}
+#logo{
+  width:60px;
+  border-radius: 52%;
+  outline: 2px solid rgba(0, 0, 0, 0.527);
+  outline-offset: -8px;
+}
+header{
+  display:grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+  font-size: 18px;
+  color:brown;
+}
+#metronomeBtnBox{
+  border:1px solid red;
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  gap:10px;
+  height: 50px;
+}
+#metronomeToolBox{
+  margin-top: 12px;
+  border:2px solid brown;
+
 }

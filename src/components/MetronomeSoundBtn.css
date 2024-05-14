@@ -1,0 +1,16 @@
+#MetronomeSoundBtn{
+    height:20px;
+    width:20px;
+    border:2px solid black;
+    border-radius: 50%;
+    outline: none;
+    background-color: orange;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.647), inset 5px 0 8px #ffffff9c;
+    cursor: pointer;
+}
+#MetronomeSoundBtn:hover{
+    background-color: red;
+}
+#MetronomeSoundBtn:active{
+    transform: scale(1.2);
+}
