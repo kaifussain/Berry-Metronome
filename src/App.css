@@ -1,3 +1,12 @@
+#forTestingOnly{
+  font-size: 14px;
+  background-color: black;
+  color:white;
+  width: fit-content;
+  position:fixed;
+  bottom:0;
+  padding:5px;
+}
 body{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: var(--main-bg-color);
@@ -5,6 +14,7 @@ body{
   font-size: 30px;
   margin:0;
   padding:12px 18px;
+  user-select: none;
 }
 #logo{
   width:60px;
@@ -126,8 +136,10 @@ header{
 #randomBox{
   border:1px solid black;
   margin-top: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right:auto;
 }
-
 
 
 

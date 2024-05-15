@@ -1,38 +1,71 @@
+import { useState } from "react";
 import "./App.css";
 import MetronomeSoundBtn from "./components/MetronomeSoundBtn";
 function App() {
+  const [beatspb_v, setBeatpb_v] = useState(3)
+  const [currentTempo_v, setCurrentTempo_v] = useState(20)
+
+  function handleBeatsPbar_f(e){
+    setBeatpb_v(parseInt(e.target.value, 10))
+  }
+
+
   return (
     <>
+      <div id="forTestingOnly">
+        beatspb_v={beatspb_v} <br/>
+        currentTempo_v={currentTempo_v}
+      </div>
       <header>
         <img src="../public/BerryMetronomeLogo.jpeg" id="logo"></img>
         Berry Metronome
       </header>
       <div id="metronomeBtnBox">
-        <MetronomeSoundBtn />
-        <MetronomeSoundBtn />
-        <MetronomeSoundBtn />
+        {
+          [...Array(beatspb_v)].map((_,i)=>(
+            <MetronomeSoundBtn key={i}/>
+          ))
+        }
       </div>
+
+
       <div id="metronmePointer">
         <div></div>
       </div>
+
+
       <div id="metronomeToolBox">
-        <button className="tempoCtrlBtn">&lt;&lt;</button>
-        <button className="tempoCtrlBtn">&lt;</button>
-        <div id="currentTempoBox">120</div>
-        <button className="tempoCtrlBtn">&gt;</button>
-        <button className="tempoCtrlBtn">&gt;&gt;</button>
+        <button className="tempoCtrlBtn" onClick={()=>setCurrentTempo_v(x=>Math.max(0,x-20))}>&lt;&lt;</button>
+        <button className="tempoCtrlBtn" onClick={()=>setCurrentTempo_v(x=>Math.max(0,x-5))}>&lt;</button>
+        <div id="currentTempoBox">{currentTempo_v}</div>
+        <button className="tempoCtrlBtn" onClick={()=>setCurrentTempo_v(x=>Math.min(x+5,300))}>&gt;</button>
+        <button className="tempoCtrlBtn" onClick={()=>setCurrentTempo_v(x=>Math.min(x+20,300))}>&gt;&gt;</button>
       </div>
+
+
       <div id="tempoSlider">
-        <div id="tempoSliderPointer"></div>
+        <div id="tempoSliderPointer" draggable={true}></div>
       </div>
+
 
       <div id="randomBox">
         randomBox
       </div>
 
+
       <div id="playCtrlBox">
         <div id="beatsPbarBtn">
-          Beats/bar <span id="beatsPbar">3</span>
+          Beats/bar
+          <select value={beatspb_v} onChange={(e)=>handleBeatsPbar_f(e)}>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+            <option value={6}>6</option>
+            <option value={7}>7</option>
+            <option value={8}>8</option>
+          </select>
         </div>
         <div id="playBtn">Play</div>
         <div id="timerBtn">Timer</div>
