@@ -4,7 +4,7 @@ body{
   color: var(--text-color1);
   font-size: 30px;
   margin:0;
-  padding:18px;
+  padding:12px 18px;
 }
 #logo{
   width:60px;
@@ -17,18 +17,140 @@ header{
   grid-template-columns: 70px 1fr;
   align-items: center;
   font-size: 18px;
-  color:brown;
+  color:var(--berry-color);
+  font-weight: bolder;
 }
+
+
+
 #metronomeBtnBox{
-  border:1px solid red;
   display: flex;
   justify-content:space-evenly;
   align-items: center;
   gap:10px;
   height: 50px;
+  max-width: 800px;
+  margin:auto;
+  margin-top:40px;
 }
-#metronomeToolBox{
-  margin-top: 12px;
-  border:2px solid brown;
 
+#metronmePointer{
+  width:5px;
+  height:60px;
+  background-color: var(--berry-color);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.432), inset 2px 0 0 rgba(255, 255, 255, 0.255);
+  margin:auto;
+  transform-origin: top;
+  position:relative;
+  border-radius: 30%;
+  top:20px;
+  /* animation: metronomePointerAni 2s infinite ease-in-out; */
+}
+#metronmePointer > div{
+  height:15px;
+  width:12px;
+  background-color: inherit;
+  border-radius: 30%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.222), inset 3px 0 0 rgba(255, 255, 255, 0.255);
+  position:absolute;
+  left:-3.3px;
+  bottom:0;
+}
+@keyframes metronomePointerAni {
+  0%{
+    transform: rotate(-95deg);
+  }
+  50%{
+    transform:  rotate(95deg);
+  }
+  100%{
+    transform: rotate(-95deg);
+  }
+}
+
+#metronomeToolBox{
+  margin-top: 38px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap:12px;
+}
+
+.tempoCtrlBtn{
+  border-radius: 18%;
+  border:none;
+  background-color: var(--berry-color);
+  color:white;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: .1s;
+}
+.tempoCtrlBtn:hover{
+  filter:brightness(1.2)
+}
+.tempoCtrlBtn:active{
+  transform: scale(1.1);
+}
+#currentTempoBox{
+  cursor: default;
+  font-size: 34px;
+}
+#tempoSlider{
+  height: 1px;
+  margin:auto;
+  max-width:700px;
+  background-color: black;
+  margin-top: 20px;
+  position:relative;
+}
+#tempoSliderPointer{
+  width:20px;
+  height:20px;
+  background-color: var(--berry-color);
+  border-radius: 50%;
+  position:absolute;
+  top:-10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+#tempoSliderPointer:hover{
+  filter:brightness(1.15);
+}
+#tempoSliderPointer:active{
+  transform: scale(1.1);
+}
+
+
+
+
+#randomBox{
+  border:1px solid black;
+  margin-top: 60px;
+}
+
+
+
+
+#playCtrlBox{
+  border:1px solid black;
+  margin-top: 80px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display:grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  gap:38px;
+  padding:12px;
+}
+#playBtn{
+  border:1px solid black;
+  cursor: pointer;
+}
+#beatsPbarBtn, #timerBtn{
+  color:black;
+  font-size: 20px;
+  border:1px solid black;
+  cursor: pointer;
 }

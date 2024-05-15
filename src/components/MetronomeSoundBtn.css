@@ -5,11 +5,12 @@
     border-radius: 50%;
     outline: none;
     background-color: orange;
-    box-shadow: 0 0 9px rgba(0, 0, 0, 0.647), inset 5px 0 8px #ffffff9c;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.369), inset 5px 0 8px #ffffff7c;
     cursor: pointer;
+    transition: .1s;
 }
 #MetronomeSoundBtn:hover{
-    background-color: red;
+    background-color: var(--berry-color);
 }
 #MetronomeSoundBtn:active{
     transform: scale(1.2);
