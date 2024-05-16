@@ -35,9 +35,10 @@ function App() {
         {/* beatspb_v={beatspb_v} <br/> */}
         {/* currentTempo_v={currentTempo_v} <br/> */}
         {/* {tempoSP_ref.} */}
-        {currentTempoName_v}
+        {/* {currentTempoName_v} */}
       
       </div>
+
 
 
       <header>

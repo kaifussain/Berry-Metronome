@@ -155,11 +155,48 @@ header{
 }
 #tempRInp{
   display:block;
-  margin: auto;
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
   width:100%;
+  /* height: 100px; */
   max-width: 500px;
   outline:none;
 }
+
+/* slider style */
+#tempRInp {
+  /*Chrome, Safari, and Opera */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  background: rgb(86, 22, 4); 
+  outline: none;
+  border-radius: 5px;
+}
+
+#tempRInp::-webkit-slider-thumb {
+  /*  Chrome, Safari, and Opera */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: rgb(190, 47, 47);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#tempRInp::-moz-range-thumb {
+  /*Firefox */
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
 
 
 #randomBox{
@@ -195,3 +232,4 @@ header{
   border:1px solid black;
   cursor: pointer;
 }
+
