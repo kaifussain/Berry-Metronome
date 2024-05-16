@@ -7,6 +7,9 @@
   bottom:0;
   padding:5px;
 }
+*{
+  box-sizing: border-box;
+}
 body{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: var(--main-bg-color);
@@ -39,7 +42,7 @@ header{
   align-items: center;
   gap:10px;
   height: 50px;
-  max-width: 800px;
+  max-width: 550px;
   margin:auto;
   margin-top:40px;
 }
@@ -105,38 +108,64 @@ header{
   cursor: default;
   font-size: 34px;
 }
-#tempoSlider{
-  height: 1px;
-  margin:auto;
-  max-width:700px;
+#currentTempoName{
+  font-size:16px;
+  font-family: monospace;
+  position: absolute;
+  top:-33px;
+}
+
+#tempoRangeBox{
+  position: relative;
+  padding:2px;
+  margin:4px auto 4px auto;
+  max-width: 500px;
+  display: flex;
+  gap:2px;
+}
+.eachTempoRange{
+  height:10px;
   background-color: black;
-  margin-top: 20px;
-  position:relative;
-}
-#tempoSliderPointer{
-  width:20px;
-  height:20px;
-  background-color: var(--berry-color);
-  border-radius: 50%;
-  position:absolute;
-  top:-10px;
-  transition: 0.2s;
+  border-radius: 3px;
   cursor: pointer;
+  transition: .1s;
 }
-#tempoSliderPointer:hover{
-  filter:brightness(1.15);
+.eachTempoRange:active{
+  transform: scaleY(1.2);
 }
-#tempoSliderPointer:active{
-  transform: scale(1.1);
+.verySlow{
+  background-color: rgb(100, 29,29);
+  width:16%;
 }
-
-
+.slow{
+  background-color: rgb(120, 29,29);
+  width:9%;
+}
+.moderate{
+  width:13%;
+  background-color: rgb(140, 29, 29);
+}
+.fast{
+  width:23%;
+  background-color: rgb(160, 29, 29);
+}
+.veryFast{
+  width:40%;
+  background-color: rgb(180, 29, 29);
+}
+#tempRInp{
+  display:block;
+  margin: auto;
+  width:100%;
+  max-width: 500px;
+  outline:none;
+}
 
 
 #randomBox{
   border:1px solid black;
   margin-top: 60px;
-  max-width: 700px;
+  max-width: 500px;
   margin-left: auto;
   margin-right:auto;
 }
@@ -146,7 +175,7 @@ header{
 #playCtrlBox{
   border:1px solid black;
   margin-top: 80px;
-  max-width: 700px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   display:grid;
