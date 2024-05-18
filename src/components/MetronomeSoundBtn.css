@@ -2,11 +2,12 @@
     height:30px;
     width:30px;
     border-radius: 50%;
-    outline: 8px solid rgba(255, 255, 254, 0.323);
+    outline: 7px solid rgba(255, 255, 254, 0.323);
     outline-offset: -15px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.757), inset 5px 0 6px #ffffff40;
     cursor: pointer;
     transition: .1s;
+    filter: opacity(0.8);
 }
 
 #MetronomeSoundBtn:active{
@@ -18,9 +19,18 @@
 }
 .mode1{
     background-color: rgb(168, 19, 19);
-    
 }
 .mode2{
-    background-color: rgb(71, 6, 6);
-
+    background-color: rgb(94, 11, 11);
 }
+.mode3{
+    background-color: rgb(37, 4, 4);
+}
+
+#MetronomeSoundBtn.btnPlaying {
+    filter:opacity(1); 
+    transform: scale(1.1);
+    outline-width: 9px;
+    outline-color: rgba(255, 255, 255, 0.605);
+    transition: all 0.1s ease-in-out;
+  }

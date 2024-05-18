@@ -57,8 +57,8 @@ header{
   position:relative;
   border-radius: 30%;
   top:20px;
-  /* animation: metronomePointerAni 2s infinite ease-in-out; */
 }
+
 #metronmePointer > div{
   height:15px;
   width:12px;
@@ -69,15 +69,16 @@ header{
   left:-3.3px;
   bottom:0;
 }
+
 @keyframes metronomePointerAni {
   0%{
-    transform: rotate(-95deg);
+    transform: rotate(-94deg);
   }
   50%{
-    transform:  rotate(95deg);
+    transform:  rotate(94deg);
   }
   100%{
-    transform: rotate(-95deg);
+    transform: rotate(-94deg);
   }
 }
 
@@ -112,13 +113,13 @@ header{
   font-size:16px;
   font-family: monospace;
   position: absolute;
-  top:-33px;
+  top:-44px;
 }
 
 #tempoRangeBox{
   position: relative;
   padding:2px;
-  margin:4px auto 4px auto;
+  margin:14px auto 4px auto;
   max-width: 500px;
   display: flex;
   gap:2px;
@@ -131,31 +132,62 @@ header{
   transition: .1s;
 }
 .eachTempoRange:active{
-  transform: scaleY(1.2);
+  transform: scale(1.1);
 }
 .verySlow{
   background-color: rgb(100, 29,29);
   width:16%;
 }
+.verySlow::before{
+  content: "Very slow";
+  font-size: 11px;
+  position: relative;
+  top:-32px;
+}
 .slow{
   background-color: rgb(120, 29,29);
   width:9%;
+}
+.slow::before{
+  content: "Slow";
+  font-size: 11px;
+  position: relative;
+  top:-32px;
 }
 .moderate{
   width:13%;
   background-color: rgb(140, 29, 29);
 }
+.moderate::before{
+  content: "Moderate";
+  font-size: 11px;
+  position: relative;
+  top:-32px;
+}
 .fast{
   width:23%;
   background-color: rgb(160, 29, 29);
+}
+.fast::before{
+  content: "Fast";
+  font-size: 11px;
+  position: relative;
+  top:-32px;
 }
 .veryFast{
   width:40%;
   background-color: rgb(180, 29, 29);
 }
+.veryFast::before{
+  content: "Very Fast";
+  font-size: 11px;
+  position: relative;
+  top:-32px;
+}
+
 #tempRInp{
   display:block;
-  margin-top: 16px;
+  margin-top: 18px;
   margin-left: auto;
   margin-right: auto;
   width:100%;
@@ -177,23 +209,28 @@ header{
 }
 
 #tempRInp::-webkit-slider-thumb {
-  /*  Chrome, Safari, and Opera */
+  /*Chrome, Safari, and Opera */
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
-  background: rgb(190, 47, 47);
-  border-radius: 50%;
+  width: 18px;
+  height: 28px;
+  background: rgb(172, 43, 43);
+  border-radius: 12%;
   cursor: pointer;
 }
-
+#tempRInp::-webkit-slider-thumb:active{
+  transform: scale(1.2);
+}
 #tempRInp::-moz-range-thumb {
   /*Firefox */
-  width: 20px;
-  height: 20px;
-  background: white;
-  border-radius: 50%;
+  width: 18px;
+  height: 28px;
+  background: rgb(172, 43, 43);
+  border-radius: 12%;
   cursor: pointer;
+}
+#tempRInp::-moz-range-thumb:active{
+  transform: scale(1.2);
 }
 
 
@@ -232,4 +269,10 @@ header{
   border:1px solid black;
   cursor: pointer;
 }
-
+#soundSelect{
+  border:1px solid black;
+  font-size: 18px;
+  width: fit-content;
+  position: fixed;
+  right:20px;
+}
