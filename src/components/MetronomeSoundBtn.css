@@ -28,7 +28,7 @@
 }
 
 #MetronomeSoundBtn.btnPlaying {
-    filter:opacity(1); 
+    filter:opacity(1) contrast(3); 
     transform: scale(1.1);
     outline-width: 9px;
     outline-color: rgba(255, 255, 255, 0.605);

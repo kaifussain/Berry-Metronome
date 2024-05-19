@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import MetronomeSoundBtn from "./components/MetronomeSoundBtn";
+import RandomBox from "./components/RandomBox";
 function App() {
   const [playing, setPlaying] = useState(false);
-  const [beatspb_v, setBeatpb_v] = useState(2);
-  const [currentTempo_v, setCurrentTempo_v] = useState(20);
+  const [beatspb_v, setBeatpb_v] = useState(5);
+  const [currentTempo_v, setCurrentTempo_v] = useState(100);
   const [currentTempoName_v, setCurrentTempoName_v] = useState("Larghissimo");
   const [currentBeat, setCurrentBeat] = useState(0);
+  const [sound, setSound] = useState("a");
 
   function handleBeatsPbar_f(e) {
     if (playing) {
@@ -52,26 +54,31 @@ function App() {
         setCurrentBeat((prevBeat) => (prevBeat + 1) % beatspb_v);
       }, (60 / currentTempo_v) * 1000);
     }
+    else{
+      clearInterval(intervalId);
+    }
 
     return () => clearInterval(intervalId);
   }, [playing, currentTempo_v, beatspb_v]);
 
- 
+  useEffect(() => {
+    if (playing) {
+      setCurrentBeat(0);
+    }
+  }, [playing]);
   return (
     <>
-      <div id="forTestingOnly">
-        {/* beatspb_v={beatspb_v} <br/> */}
-        {/* currentTempo_v={currentTempo_v} <br/> */}
-        {/* {tempoSP_ref.} */}
-        {/* {currentTempoName_v} */}
+      <div id="soundSelect">
+        Sound:
+        <select onChange={e=>setSound(e.target.value)}>
+          <option value={"a"}>Tick</option>
+          <option value={"b"}>Bell</option>
+          <option value={"c"}>Pop</option>
+          <option value={"d"}>Click</option>
+          <option value={"e"}>Piano 1</option>
+          <option value={"f"}>Piano 2</option>
+        </select>
       </div>
-    <div id="soundSelect">
-      Sound: 
-      <select >
-        <option value={'a'}>a</option>
-        <option value={'b'}>b</option>
-      </select>
-    </div>
       <header>
         <img src="../public/BerryMetronomeLogo.jpeg" id="logo"></img>
         Berry Metronome
@@ -82,18 +89,25 @@ function App() {
             key={i}
             play={playing && i === currentBeat}
             playing={playing}
+            sound={sound}
           />
         ))}
       </div>
 
-      <div id="metronmePointer"
-        style={{
-          animation: playing
-            ? `metronomePointerAni ${120 / currentTempo_v}s infinite ease-in-out`
-            : "none",
-        }}
-      >
-        <div></div>
+      <div id="metronomePointerBox">
+        <div
+          id="metronmePointer"
+          style={{
+            animation: playing
+              ? `metronomePointerAni ${
+                  120 / currentTempo_v
+                }s infinite ease-in-out`
+              : "none",
+          }}
+        >
+          <div id="pointerDown"></div>
+        </div>
+        <div id="pointerHook"></div>
       </div>
 
       <div id="metronomeToolBox">
@@ -158,7 +172,9 @@ function App() {
         ></input>
       </div>
 
-      <div id="randomBox">randomBox</div>
+      <div id="randomBox">
+        <RandomBox playing={playing} tempo={currentTempo_v} beatspb={beatspb_v}/>
+      </div>
 
       <div id="playCtrlBox">
         <div id="beatsPbarBtn">

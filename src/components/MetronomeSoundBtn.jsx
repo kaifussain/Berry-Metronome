@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./MetronomeSoundBtn.css";
-const MetronomeSoundBtn = ({play,playing}) => {
+const MetronomeSoundBtn = ({play,playing,sound}) => {
   const [mode, setMode] = useState(1);
   const beat1 = useRef(null);
   const beat2 = useRef(null);
@@ -60,9 +60,9 @@ const MetronomeSoundBtn = ({play,playing}) => {
         }
       }}
     >
-      <audio ref={beat1} src="src\assets\sound_a\a1.mp3"></audio>
-      <audio ref={beat2} src="src\assets\sound_a\a2.mp3"></audio>
-      <audio ref={beat3} src="src\assets\sound_a\a3.wav"></audio>
+      <audio ref={beat1} src={`src/assets/${sound}/a1.mp3`}></audio>
+      <audio ref={beat2} src={`src/assets/${sound}/a2.mp3`}></audio>
+      <audio ref={beat3} src={`src/assets/${sound}/a3.mp3`}></audio>
     </div>
   );
 };

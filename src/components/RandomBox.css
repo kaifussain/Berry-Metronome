@@ -1,0 +1,57 @@
+#practiceBox{
+    position: absolute;
+    font-size: 15px;
+    top:-22px;
+    left:0;
+}
+.displayRandItemsBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+#currentItem{
+    color:var(--berry-color);
+    font-weight: 800;
+    font-size: 40px;
+    text-shadow: 0 0 2px black;
+    height: 50px;
+}
+
+@keyframes currentItemAni {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.selectEachItemsBox{
+    /* width:280px; */
+    display:flex;
+    flex-wrap: wrap;
+    gap:2px;
+    align-items: center;
+    justify-content:center;
+}
+.selectEachItemsBox div{
+    font-size: 16px;
+    background-color: rgb(154, 25, 25);
+    color:white;
+    width: fit-content;
+    padding:3px 6px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.disabledItem{
+    filter: opacity(0.3);
+}
+.itemPreSetBox{
+    position:absolute;
+    top:-40px;
+    right:0;
+}
