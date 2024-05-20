@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import MetronomeSoundBtn from "./components/MetronomeSoundBtn";
 import RandomBox from "./components/RandomBox";
+
 function App() {
   const [playing, setPlaying] = useState(false);
   const [beatspb_v, setBeatpb_v] = useState(5);
@@ -9,6 +10,10 @@ function App() {
   const [currentTempoName_v, setCurrentTempoName_v] = useState("Larghissimo");
   const [currentBeat, setCurrentBeat] = useState(0);
   const [sound, setSound] = useState("a");
+  const [timerDuration, setTimerDuration] = useState(0); // Timer duration in minutes
+  const [remainingTime, setRemainingTime] = useState(0); // Remaining time in seconds
+  const intervalRef = useRef(null);
+  const timerRef = useRef(null);
 
   function handleBeatsPbar_f(e) {
     if (playing) {
@@ -53,8 +58,8 @@ function App() {
       intervalId = setInterval(() => {
         setCurrentBeat((prevBeat) => (prevBeat + 1) % beatspb_v);
       }, (60 / currentTempo_v) * 1000);
-    }
-    else{
+      intervalRef.current = intervalId;
+    } else {
       clearInterval(intervalId);
     }
 
@@ -62,25 +67,62 @@ function App() {
   }, [playing, currentTempo_v, beatspb_v]);
 
   useEffect(() => {
-    if (playing) {
+    if (playing && timerDuration > 0) {
+      if (remainingTime === 0) {
+        setRemainingTime(timerDuration * 60);
+      }
+      timerRef.current = setInterval(() => {
+        setRemainingTime((prevTime) => prevTime - 1);
+      }, 1000);
+    } else {
+      clearInterval(timerRef.current);
+    }
+
+    if (!playing) {
+      clearInterval(timerRef.current);
+    }
+
+    if (remainingTime === 0 && timerDuration > 0) {
+      setPlaying(false);
+      clearInterval(timerRef.current);
+    }
+
+    return () => clearInterval(timerRef.current);
+  }, [playing, remainingTime, timerDuration]);
+
+  useEffect(() => {
+    if (!playing) {
       setCurrentBeat(0);
+      clearInterval(intervalRef.current);
     }
   }, [playing]);
+
+  const stopPlaying = () => {
+    setPlaying(false);
+    clearInterval(intervalRef.current);
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
   return (
     <>
       <div id="soundSelect">
         Sound:
-        <select onChange={e=>setSound(e.target.value)}>
+        <select onChange={(e) => setSound(e.target.value)}>
           <option value={"a"}>Tick</option>
           <option value={"b"}>Bell</option>
           <option value={"c"}>Pop</option>
           <option value={"d"}>Click</option>
           <option value={"e"}>Piano 1</option>
           <option value={"f"}>Piano 2</option>
-        </select>
+          </select>
       </div>
       <header>
-        <img src="../public/BerryMetronomeLogo.jpeg" id="logo"></img>
+        <img src="../public/BerryMetronomeLogo.jpeg" id="logo" alt="Berry Metronome Logo"></img>
         Berry Metronome
       </header>
       <div id="metronomeBtnBox">
@@ -99,9 +141,7 @@ function App() {
           id="metronmePointer"
           style={{
             animation: playing
-              ? `metronomePointerAni ${
-                  120 / currentTempo_v
-                }s infinite ease-in-out`
+              ? `metronomePointerAni ${120 / currentTempo_v}s infinite ease-in-out`
               : "none",
           }}
         >
@@ -173,7 +213,12 @@ function App() {
       </div>
 
       <div id="randomBox">
-        <RandomBox playing={playing} tempo={currentTempo_v} beatspb={beatspb_v}/>
+        <RandomBox
+          playing={playing}
+          tempo={currentTempo_v}
+          beatspb={beatspb_v}
+          stopPlaying={stopPlaying}
+        />
       </div>
 
       <div id="playCtrlBox">
@@ -192,10 +237,30 @@ function App() {
             <option value={10}>10</option>
           </select>
         </div>
-        <div id="playBtn" onClick={() => setPlaying(!playing)}>
-          {playing ? "Stop" : "Play"}
+        <div className="playBtn" onClick={() => setPlaying(!playing)}>
+          <div className={`mainPlayBtn ${playing ? "playingMainBtn" : "pausedMainBtn"}`}></div>
         </div>
-        <div id="timerBtn">Timer</div>
+        <div id="timerBtn">
+          Timer
+          <select
+            value={timerDuration}
+            onChange={(e) => {
+              setTimerDuration(parseInt(e.target.value, 10));
+              setRemainingTime(parseInt(e.target.value, 10) * 60);
+            }}
+          >
+            <option value={0}>off</option>
+            <option value={1}>1 Min</option>
+            <option value={2}>2 Min</option>
+            <option value={3}>3 Min</option>
+            <option value={4}>4 Min</option>
+            <option value={5}>5 Min</option>
+            <option value={7}>7 Min</option>
+            <option value={10}>10 Min</option>
+            <option value={15}>15 Min</option>
+          </select>
+        </div>
+        <div id="countdown">{timerDuration > 0 && formatTime(remainingTime)}</div>
       </div>
     </>
   );

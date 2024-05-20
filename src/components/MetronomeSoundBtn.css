@@ -4,7 +4,7 @@
     border-radius: 50%;
     outline: 7px solid rgba(255, 255, 254, 0.323);
     outline-offset: -15px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.757), inset 5px 0 6px #ffffff40;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.757), inset 5px 0 2px #ffffff40, inset -5px 0 2px rgba(0, 0, 0, 0.077);
     cursor: pointer;
     transition: .1s;
     filter: opacity(0.8);
@@ -28,7 +28,7 @@
 }
 
 #MetronomeSoundBtn.btnPlaying {
-    filter:opacity(1) contrast(3); 
+    filter:opacity(1) contrast(1.5); 
     transform: scale(1.1);
     outline-width: 9px;
     outline-color: rgba(255, 255, 255, 0.605);

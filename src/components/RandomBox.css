@@ -1,7 +1,7 @@
 #practiceBox{
     position: absolute;
     font-size: 15px;
-    top:-22px;
+    top:-27px;
     left:0;
 }
 .displayRandItemsBox{
@@ -20,18 +20,17 @@
 
 @keyframes currentItemAni {
     0%{
-        transform: scale(1);
+        transform: scale(0.8);
     }
     50%{
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
     100%{
-        transform: scale(1);
+        transform: scale(0.8);
     }
 }
 
 .selectEachItemsBox{
-    /* width:280px; */
     display:flex;
     flex-wrap: wrap;
     gap:2px;
@@ -55,3 +54,31 @@
     top:-40px;
     right:0;
 }
+.itemPreSetBox select{
+    padding:3px 7px;
+    background-color: var(--main-bg-color);
+    color:black;
+    margin-left: 5px;
+    border-radius: 4px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border:none;
+    border:2px solid transparent;
+}
+.itemPreSetBox select:focus {
+    outline: none;
+    border-color:rgba(0, 0, 0, 0.256);
+}
+.hide{
+    display: none;
+}
+.PracticeSwitch{
+    position: absolute;
+    top:-4px;
+    left:65px;
+}
+.pracCheckBox{
+    width:18px;
+    height:18px;
+}
+
+  
