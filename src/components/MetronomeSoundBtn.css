@@ -34,3 +34,22 @@
     outline-color: rgba(255, 255, 255, 0.605);
     transition: all 0.1s ease-in-out;
   }
+  @media (max-width: 600px) {
+    #MetronomeSoundBtn{
+        height:26px;
+        width:26px;
+        outline-width: 6px;
+  }
+}
+@media (max-width: 400px) {
+    #MetronomeSoundBtn{
+        height:21px;
+        width:21px;
+        outline-width: 5px;
+  }
+  
+  #MetronomeSoundBtn.btnPlaying {
+    outline-width: 6.5px;
+  }
+  
+}

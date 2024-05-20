@@ -51,23 +51,23 @@
 }
 .itemPreSetBox{
     position:absolute;
-    top:-40px;
+    top:-42px;
     right:0;
 }
 .itemPreSetBox select{
     padding:3px 7px;
     background-color: var(--main-bg-color);
     color:black;
-    margin-left: 5px;
+    margin-left: 10px;
     border-radius: 4px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border:none;
-    border:2px solid transparent;
+    border:1px solid rgba(0, 0, 0, 0.65);
 }
 .itemPreSetBox select:focus {
     outline: none;
     border-color:rgba(0, 0, 0, 0.256);
 }
+
 .hide{
     display: none;
 }
@@ -80,5 +80,21 @@
     width:18px;
     height:18px;
 }
-
+@media (max-width: 600px) {
+    .itemPreSetBox select{
+        padding:3px 3px;
+        background-color: var(--main-bg-color);
+        margin-left: 3px;
+    }
+    
+      
+}
+@media (max-width:400px){
+    .PracticeSwitch{
+        left:58px;
+    }
+    .itemPreSetBox > select {
+        width:90px;
+    }
+}
   

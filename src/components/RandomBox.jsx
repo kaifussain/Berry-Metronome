@@ -57,20 +57,35 @@ const RandomBox = ({ playing, tempo, beatspb, stopPlaying }) => {
             { name: "G", enabled: true },
             { name: "Gm", enabled: true },
           ];
-        case "n":
+        case "sar":
           return [
-            { name: "sa", enabled: true },
+            { name: "Sa", enabled: true },
             { name: "r", enabled: true },
-            { name: "re", enabled: true },
+            { name: "Re", enabled: true },
             { name: "g", enabled: true },
-            { name: "ga", enabled: true },
-            { name: "ma", enabled: true },
+            { name: "Ga", enabled: true },
             { name: "M", enabled: true },
+            { name: "Ma", enabled: true },
             { name: "pa", enabled: true },
             { name: "d", enabled: true },
-            { name: "da", enabled: true },
+            { name: "Da", enabled: true },
             { name: "n", enabled: true },
-            { name: "ni", enabled: true },
+            { name: "Ni", enabled: true },
+          ];
+          case "n":
+          return [
+            { name: "A", enabled: true },
+            { name: "A#", enabled: true },
+            { name: "B", enabled: true },
+            { name: "C", enabled: true },
+            { name: "C#", enabled: true },
+            { name: "D", enabled: true },
+            { name: "D#", enabled: true },
+            { name: "E", enabled: true },
+            { name: "F", enabled: true },
+            { name: "F#", enabled: true },
+            { name: "G", enabled: true },
+            { name: "G#", enabled: true },
           ];
         case "s":
           return [
@@ -160,6 +175,7 @@ const RandomBox = ({ playing, tempo, beatspb, stopPlaying }) => {
           <select value={selectedPreSet} onChange={handlePreSetChange}>
             <option value="c">Basic Chords</option>
             <option value="s">Seventh Chords</option>
+            <option value="sar">Sargam</option>
             <option value="n">Music Notes</option>
           </select>
           <select

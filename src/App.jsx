@@ -10,8 +10,8 @@ function App() {
   const [currentTempoName_v, setCurrentTempoName_v] = useState("Larghissimo");
   const [currentBeat, setCurrentBeat] = useState(0);
   const [sound, setSound] = useState("a");
-  const [timerDuration, setTimerDuration] = useState(0); // Timer duration in minutes
-  const [remainingTime, setRemainingTime] = useState(0); // Remaining time in seconds
+  const [timerDuration, setTimerDuration] = useState(0);
+  const [remainingTime, setRemainingTime] = useState(0);
   const intervalRef = useRef(null);
   const timerRef = useRef(null);
 
@@ -111,7 +111,7 @@ function App() {
   return (
     <>
       <div id="soundSelect">
-        Sound:
+        <span>sound</span>
         <select onChange={(e) => setSound(e.target.value)}>
           <option value={"a"}>Tick</option>
           <option value={"b"}>Bell</option>
