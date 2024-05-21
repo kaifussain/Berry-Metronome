@@ -60,9 +60,12 @@ const MetronomeSoundBtn = ({play,playing,sound}) => {
         }
       }}
     >
-      <audio ref={beat1} src={`src/assets/${sound}/a1.mp3`}></audio>
+      {/* <audio ref={beat1} src={`src/assets/${sound}/a1.mp3`}></audio>
       <audio ref={beat2} src={`src/assets/${sound}/a2.mp3`}></audio>
-      <audio ref={beat3} src={`src/assets/${sound}/a3.mp3`}></audio>
+      <audio ref={beat3} src={`src/assets/${sound}/a3.mp3`}></audio> */}
+      <audio ref={beat1} src={`assets/${sound}/a1.mp3`}></audio>
+      <audio ref={beat2} src={`assets/${sound}/a2.mp3`}></audio>
+      <audio ref={beat3} src={`assets/${sound}/a3.mp3`}></audio>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import MetronomeSoundBtn from "./components/MetronomeSoundBtn";
 import RandomBox from "./components/RandomBox";
+import logo from '/public/BerryMetronomeLogo.jpeg';
 
 function App() {
   const [playing, setPlaying] = useState(false);
@@ -122,7 +123,7 @@ function App() {
           </select>
       </div>
       <header>
-        <img src="../public/BerryMetronomeLogo.jpeg" id="logo" alt="Berry Metronome Logo"></img>
+        <img src={logo} id="logo" alt="Berry Metronome Logo"></img>
         Berry Metronome
       </header>
       <div id="metronomeBtnBox">
