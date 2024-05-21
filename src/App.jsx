@@ -6,8 +6,8 @@ import logo from '/public/BerryMetronomeLogo.jpeg';
 
 function App() {
   const [playing, setPlaying] = useState(false);
-  const [beatspb_v, setBeatpb_v] = useState(5);
-  const [currentTempo_v, setCurrentTempo_v] = useState(100);
+  const [beatspb_v, setBeatpb_v] = useState(4);
+  const [currentTempo_v, setCurrentTempo_v] = useState(60);
   const [currentTempoName_v, setCurrentTempoName_v] = useState("Larghissimo");
   const [currentBeat, setCurrentBeat] = useState(0);
   const [sound, setSound] = useState("a");
