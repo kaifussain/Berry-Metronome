@@ -1,8 +1,13 @@
-# React + Vite
+# Berry Metronome
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Berry Metronome is a simple and user-friendly metronome app designed to improve timing for music learners. It provides various tempo settings, chord and note practice options, and a built-in timer to enhance your practice sessions.
 
-Currently, two official plugins are available:
+![image](https://github.com/kaifussain/Berry-Metronome/assets/113294231/f148baf8-1189-4d6b-aa72-57a106c0a797)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Adjustable Tempo**: Set the tempo between very slow and very fast with fine-tuning options.
+- **Chord Practice**: Select from a range of basic chords to practice with each beat.
+- **Sound Options**: Choose from different sound types for the metronome tick.
+- **Timer**: Set a practice session timer to manage your practice duration.
+- **Beats per Bar**: Customize the number of beats per bar to suit your practice needs.
