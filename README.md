@@ -2,7 +2,11 @@
 
 Berry Metronome is a simple and user-friendly metronome app designed to improve timing for music learners. It provides various tempo settings, chord and note practice options, and a built-in timer to enhance your practice sessions.
 
-![image](https://github.com/kaifussain/Berry-Metronome/assets/113294231/f148baf8-1189-4d6b-aa72-57a106c0a797)
+[![image](https://github.com/kaifussain/Berry-Metronome/assets/113294231/f148baf8-1189-4d6b-aa72-57a106c0a797)](https://www.youtube.com/watch?v=mEiyPgL0jFI)
+
+<sub>_Click on the Image to watch a demo video on YouTube._<sub>
+
+[Explore Beryy Metronome](https://kaifussain.github.io/Berry-Metronome/)
 
 ## Features
 
