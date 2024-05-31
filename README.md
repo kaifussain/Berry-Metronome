@@ -6,7 +6,7 @@ Berry Metronome is a simple and user-friendly metronome app designed to improve 
 
 <sub>_Click on the Image to watch a demo video on YouTube._<sub>
 
-[Explore Beryy Metronome](https://kaifussain.github.io/Berry-Metronome/)
+[Explore Berry Metronome](https://kaifussain.github.io/Berry-Metronome/)
 
 ## Features
 
